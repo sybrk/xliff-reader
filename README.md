@@ -1,2 +1,2 @@
 # xliff-reader
-Read .*xliff files in your browser
+Read xliff 1.2 files in your browser.
