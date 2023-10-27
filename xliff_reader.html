@@ -12,28 +12,29 @@
     </head>
     <body>
 		<div class="mx-3">
-			<h1 class="h1 bg-info">Xliff 1.2 Reader</h1>
-			<div id="firstdiv" class="mx-3">
-				<div>
-					<input type="file" id="choosefiles" multiple accept=".xliff, xlf">
-					<button id="readbutton" class="rounded-pill btn btn-success text-black" type="button">Read</button>
-					<button id="resetbutton" class="rounded-pill btn btn-info" type="button">Reset</button>
-				</div>
-				<div class="pt-2">
-					<table class="table table-bordered">
-						<thead>
-							<tr>
-								<th scope="col">File Name</th>
-								<th scope="col">Status</th>
-								<th scope="col">Source Text</th>
-								<th scope="col">Target Text</th>
-							</tr>
-						</thead>
-						<tbody id="tbody" class="table-group-divider">
-						</tbody>
-					</table>
-				</div>
-			</div>
-		<div>
+            <h1 class="h1 bg-info">Xliff 1.2 Reader by Sinan Yolal</h1>
+            <div id="firstdiv" class="mx-3">
+                <div>
+                    <input type="file" id="choosefiles" multiple accept=".xliff, xlf">
+                    <button id="readbutton" class="rounded-pill btn btn-success text-black" type="button">Read</button>
+                    <button id="resetbutton" class="rounded-pill btn btn-info" type="button">Reset</button>
+                    <button id="downloadbutton" class="rounded-pill btn btn-primary" type="button" disabled>Download</button>
+                </div>
+                <div class="pt-2">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">File Name</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Source Text</th>
+                                <th scope="col">Target Text</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody" class="table-group-divider">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
