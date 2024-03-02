@@ -9,8 +9,8 @@ function App() {
 
   return (
     <>
-      <ReadFiles setFileContent = {setFileContent} />
-      <ContentTable fileContent = {fileContent} />
+      <ReadFiles key={"read"} setFileContent = {setFileContent} />
+      <ContentTable key={"table"} fileContent = {fileContent} />
     </>
   )
 }
