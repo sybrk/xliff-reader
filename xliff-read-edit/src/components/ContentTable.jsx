@@ -2,7 +2,7 @@ import XliffFile from "./XliffFile"
 
 
 const ContentTable = (props) => {
-    const { fileContent } = props
+    const { fileContent, setFileContent } = props
 
     
 
@@ -21,7 +21,7 @@ const ContentTable = (props) => {
                     {
                         fileContent &&
                         fileContent.map((file, index) => 
-                            <XliffFile key = {index} file = {file} />                        
+                            <XliffFile key = {"file_"+index} myKey = {index} file = {file} fileContent = {fileContent} setFileContent = {setFileContent} />                        
                         )
                     }
                 </tbody>
