@@ -1,27 +1,32 @@
 
 
 const TransUnit = (props) => {
-    const { unit, file, myKey, updateAndSerialize } = props
-    const sourceUnit = Array.from(unit.querySelectorAll("source"));
-    const targetUnit = Array.from(unit.querySelectorAll("target"));
+    const { unit, file, updateAndSerialize } = props
+    let sourceUnit = Array.from(unit.querySelectorAll("source"));
+    let targetUnit = Array.from(unit.querySelectorAll("target"));
+
+    const replaceNS = (innerHTML) => {
+        return innerHTML.replaceAll(' xmlns="urn:oasis:names:tc:xliff:document:1.2"',"")
+    }
 
     const updateTarget = (index, e) => {
         let tmpUnit = unit
-        let updatedContent = e.target.previousSibling.firstChild.innerHTML;
+        let updatedContent = e.target.parentElement.previousSibling.firstChild.innerHTML;
         console.log(updatedContent)
-        tmpUnit.querySelectorAll("target")[index].innerHTML = updatedContent;
-        updateAndSerialize(myKey,tmpUnit)
+        let toUpdate = tmpUnit.querySelectorAll("target")
+        toUpdate[index].innerHTML = updatedContent;
+        updateAndSerialize()
     }
     return (
         sourceUnit.map((seg, index) => {
             return(
                 
-                <tr>
+                <tr key={unit.getAttribute("id") + index}>
                     <td>{file.filename}</td>
                     <td>{targetUnit[index] && targetUnit[index].hasAttribute("state") ? targetUnit[index].getAttribute("state") : "undefined"}</td>
-                    <td><pre style={{whiteSpace: "pre-line"}}>{seg.innerHTML}</pre></td>
-                    <td><pre style={{whiteSpace: "pre-line"}} contentEditable = {"true"} >{targetUnit[index] && targetUnit[index].innerHTML}</pre></td>
-                    <button onClick={(e) =>updateTarget(index, e)} >Save</button>
+                    <td><pre style={{whiteSpace: "pre-line"}}>{replaceNS(seg.innerHTML)}</pre></td>
+                    <td><pre style={{whiteSpace: "pre-line"}} contentEditable = {"true"} >{targetUnit[index] && replaceNS(targetUnit[index].innerHTML)}</pre></td>
+                    <td><button onClick={(e) =>updateTarget(index, e)} >Save</button></td>
                 </tr>
                 
             )

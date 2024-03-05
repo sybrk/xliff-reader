@@ -9,9 +9,7 @@ const XliffFile = (props) => {
     }
     let parsed = xmlParser(file.filecontent);
     let transUnits = Array.from(parsed.querySelectorAll("xliff trans-unit"))
-    const updateAndSerialize = (index, updatedUnit) => {
-        let tmpUnit = parsed.querySelectorAll("xliff trans-unit");
-        tmpUnit[index] = updatedUnit;
+    const updateAndSerialize = () => {
         const s = new XMLSerializer();
         let updatedXML = s.serializeToString(parsed);
         let tmpFile = file;
@@ -23,7 +21,7 @@ const XliffFile = (props) => {
     return (
         <>
             {
-                transUnits.map((unit, index) => <TransUnit key={file.filename + "_unit_"+index} myKey = {index} file = {file} unit = {unit} updateAndSerialize = {updateAndSerialize} />)
+                transUnits.map((unit, index) => <TransUnit key={unit.getAttribute("id")} file = {file} unit = {unit} updateAndSerialize = {updateAndSerialize} />)
             }
         </>
     )
