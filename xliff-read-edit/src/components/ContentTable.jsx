@@ -15,6 +15,8 @@ const ContentTable = (props) => {
                         <th scope="col">Status</th>
                         <th scope="col">Source Text</th>
                         <th scope="col">Target Text</th>
+                        <th scope="col">Save</th>
+                        <th scope="col">Compare</th>
                     </tr>
                 </thead>
                 <tbody id="tbody" className="table-group-divider">
